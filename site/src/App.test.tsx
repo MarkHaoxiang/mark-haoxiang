@@ -23,6 +23,7 @@ describe("routes", () => {
     expect(
       screen.getByRole("link", { name: "publications" }).getAttribute("href"),
     ).toBe("/publications");
+    expect(screen.getByAltText(/Peak District/)).toBeTruthy();
   });
 
   it("lists every publication with a link to its page", () => {

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import hikePhoto from "../assets/hike-peak-district.jpg";
 
 export default function Home() {
   return (
@@ -17,6 +18,13 @@ export default function Home() {
         away from a keyboard, you'll usually find me on a badminton court, a
         hiking trail, or at a board game table.
       </p>
+      <figure className="home-photo">
+        <img
+          src={hikePhoto}
+          alt="Standing on gritstone boulders above a moorland valley in the Peak District, arms outstretched"
+        />
+        <figcaption>The Peak District, England</figcaption>
+      </figure>
     </article>
   );
 }
