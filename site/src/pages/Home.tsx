@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function Home() {
   return (
     <article className="home">
-      <p>Hi, I'm Mark. I'm a software engineer at Jane Street.</p>
+      <p>I'm a software engineer at Jane Street.</p>
       <p>
         Before this, I studied Computer Science at the University of Cambridge
         (BA and MEng). My research interests lie in multi-agent systems and

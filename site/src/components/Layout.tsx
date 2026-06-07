@@ -5,7 +5,7 @@ export default function Layout() {
     <div className="page">
       <header className="site-header">
         <NavLink to="/" className="site-title">
-          Mark Haoxiang
+          Hao Xiang Li
         </NavLink>
         <nav className="site-nav">
           <NavLink to="/" end>

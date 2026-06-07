@@ -18,7 +18,7 @@ describe("routes", () => {
   it("renders the overview at /", () => {
     renderAt("/");
     expect(
-      screen.getByText("Hi, I'm Mark. I'm a software engineer at Jane Street."),
+      screen.getByText("I'm a software engineer at Jane Street."),
     ).toBeTruthy();
     expect(
       screen.getByRole("link", { name: "publications" }).getAttribute("href"),
