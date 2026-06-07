@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 export default function Home() {
   return (
     <article className="home">
-      <p className="lede">Currently at Jane Street.</p>
+      <p>Hi, I'm Mark. I work as a software engineer at Jane Street.</p>
       <p>
-        Previously, I completed my BA and MEng in Computer Science at the
-        University of Cambridge.
+        Before that, I studied Computer Science at the University of Cambridge
+        (BA and MEng).
       </p>
       <p>
-        I am interested in multi-agent systems and reinforcement learning —
+        My interests lie in multi-agent systems and reinforcement learning —
         see my <Link to="/publications">publications</Link>.
       </p>
       <p>Outside of work, I enjoy badminton.</p>
