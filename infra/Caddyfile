@@ -1,0 +1,21 @@
+# Site address comes from SITE_ADDRESS in infra/.env.
+# Unset (local development) it defaults to plain HTTP on localhost:8080.
+# Production: SITE_ADDRESS=markhaoxiang.com, www.markhaoxiang.com
+{$SITE_ADDRESS:localhost:8080} {
+	encode gzip
+
+	# Future projects mount under paths. handle_path strips the prefix
+	# before proxying, so the upstream sees requests rooted at /.
+	# Remember to set the matching base path in the project's build
+	# (e.g. vite `base: "/catan/"` and FastAPI `root_path="/catan"`).
+	#
+	# handle_path /catan/* {
+	# 	reverse_proxy catan:8000
+	# }
+
+	handle {
+		root * /srv/site
+		try_files {path} /index.html
+		file_server
+	}
+}
