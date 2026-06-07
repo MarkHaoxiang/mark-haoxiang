@@ -17,9 +17,12 @@ describe("publications data", () => {
     }
   });
 
-  it("has unique titles (used as list keys)", () => {
-    const titles = publications.map((pub) => pub.title);
-    expect(new Set(titles).size).toBe(titles.length);
+  it("has unique kebab-case slugs (used as list keys and routes)", () => {
+    const slugs = publications.map((pub) => pub.slug);
+    expect(new Set(slugs).size).toBe(slugs.length);
+    for (const slug of slugs) {
+      expect(slug).toMatch(/^[a-z0-9]+(-[a-z0-9]+)*$/);
+    }
   });
 
   it("only contains http(s) links", () => {

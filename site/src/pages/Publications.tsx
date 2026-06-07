@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { publications } from "../data/publications";
 
 export default function Publications() {
@@ -6,8 +7,10 @@ export default function Publications() {
       <h1>Publications</h1>
       <ul className="publication-list">
         {publications.map((pub) => (
-          <li key={pub.title}>
-            <span className="publication-title">{pub.title}</span>
+          <li key={pub.slug}>
+            <Link to={`/publications/${pub.slug}`} className="publication-title">
+              {pub.title}
+            </Link>
             <span className="publication-meta">
               {pub.authors} · {pub.venue}, {pub.year}
             </span>

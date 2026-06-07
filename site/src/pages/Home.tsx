@@ -1,19 +1,19 @@
+import { Link } from "react-router-dom";
+
 export default function Home() {
   return (
-    <article>
-      <h1>About</h1>
-      {/* TODO: update bio — adapted from the old academic-pages site and likely stale. */}
+    <article className="home">
+      <p className="lede">Currently at Jane Street.</p>
       <p>
-        I am a computer science graduate of the University of Cambridge. My
-        research interests concern building robust, generalisable AI; in
-        particular, the intersection between robotic control and reinforcement
-        learning.
+        Previously, I completed my BA and MEng in Computer Science at the
+        University of Cambridge.
       </p>
       <p>
-        This site collects my <a href="/publications">publications</a> and{" "}
-        <a href="/projects">projects</a>, including live demonstrations hosted
-        on this domain.
+        I am interested in multi-agent systems and reinforcement learning —
+        see my <Link to="/publications">publications</Link>.
       </p>
+      <p>Outside of work, I enjoy badminton.</p>
+      <p className="muted">Canada · China · UK</p>
     </article>
   );
 }
