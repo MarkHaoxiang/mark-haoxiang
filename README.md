@@ -38,6 +38,16 @@ npm run dev          # Vite dev server on http://localhost:5173
 
 To test the production setup locally, build the site and run compose without a `.env`; Caddy falls back to plain HTTP on [http://localhost:8080](http://localhost:8080).
 
+## Testing
+
+```bash
+cd site
+npm test             # vitest (route smoke tests, data validation)
+npm run check        # typecheck + tests
+```
+
+A pre-commit hook (`.githooks/pre-commit`) runs `npm run check` when `site/` files are staged, and `caddy validate` when `infra/` files are staged (skipped if caddy isn't installed). It is enabled by `git config core.hooksPath .githooks`, which the site's npm `prepare` script sets automatically on install.
+
 ## Adding a hosted project
 
 Projects live in their own repositories and are mounted under a path on the domain:

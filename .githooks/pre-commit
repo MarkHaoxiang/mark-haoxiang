@@ -1,0 +1,26 @@
+#!/usr/bin/env sh
+# Enabled via `git config core.hooksPath .githooks`, which the site's
+# npm `prepare` script sets automatically on install.
+set -e
+
+root="$(git rev-parse --show-toplevel)"
+
+# Typecheck + unit tests, only when site files are staged.
+if git diff --cached --name-only | grep -q '^site/'; then
+	if [ ! -d "$root/site/node_modules" ]; then
+		echo "pre-commit: site/node_modules missing; run 'npm ci' in site/" >&2
+		exit 1
+	fi
+	echo "pre-commit: running site checks (tsc + vitest)"
+	(cd "$root/site" && npm run --silent check)
+fi
+
+# Validate the Caddyfile when infra files are staged and caddy is available.
+if git diff --cached --name-only | grep -q '^infra/'; then
+	if command -v caddy >/dev/null 2>&1; then
+		echo "pre-commit: validating Caddyfile"
+		caddy validate --config "$root/infra/Caddyfile" --adapter caddyfile
+	else
+		echo "pre-commit: caddy not installed; skipping Caddyfile validation"
+	fi
+fi
