@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import type { Publication } from "../data/publications";
+import Authors from "./Authors";
 
 interface PublicationPageProps {
   publication: Publication;
@@ -19,12 +20,13 @@ export default function PublicationPage({
       </Link>
       <h1>{title}</h1>
       <p className="publication-meta">
-        {authors} · {venue}, {year}
+        <Authors authors={authors} /> · {venue}, {year}
       </p>
       {links && (
         <p className="publication-links">
           {links.pdf && <a href={links.pdf}>pdf</a>}
           {links.arxiv && <a href={links.arxiv}>arXiv</a>}
+          {links.poster && <a href={links.poster}>poster</a>}
           {links.code && <a href={links.code}>code</a>}
         </p>
       )}

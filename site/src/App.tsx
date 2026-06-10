@@ -7,6 +7,7 @@ import Publications from "./pages/Publications";
 import CatanEngine from "./pages/projects/CatanEngine";
 import DiffusionCoDesign from "./pages/publications/DiffusionCoDesign";
 import GeometricGovernance from "./pages/publications/GeometricGovernance";
+import NeuralMmo from "./pages/publications/NeuralMmo";
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
           path="publications/geometric-governance"
           element={<GeometricGovernance />}
         />
+        <Route path="publications/neural-mmo" element={<NeuralMmo />} />
         <Route path="projects" element={<Projects />} />
         <Route path="projects/catan-engine" element={<CatanEngine />} />
         <Route path="*" element={<NotFound />} />

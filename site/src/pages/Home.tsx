@@ -8,8 +8,9 @@ export default function Home() {
       <p>
         Before this, I studied Computer Science at the University of Cambridge
         (BA and MEng). My research interests lie in multi-agent systems and
-        reinforcement learning — how groups interact, coordinate, and give
-        rise to emergent behaviour, often through the lens of robotics. Some
+        reinforcement learning — how groups of individuals interact,
+        coordinate, and give rise to emergent behaviour, often through the
+        lens of robotics. Some
         of that work appears in my{" "}
         <Link to="/publications">publications</Link>.
       </p>
@@ -21,7 +22,7 @@ export default function Home() {
       <figure className="home-photo">
         <img
           src={hikePhoto}
-          alt="Standing on gritstone boulders above a moorland valley in the Peak District, arms outstretched"
+          alt="Standing boulders above a moorland valley in the Peak District, arms outstretched"
         />
         <figcaption>The Peak District, England</figcaption>
       </figure>
