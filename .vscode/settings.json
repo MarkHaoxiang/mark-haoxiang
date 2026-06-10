@@ -1,0 +1,8 @@
+{
+  // The ESLint config lives in site/, not the repo root.
+  "eslint.workingDirectories": ["site"],
+  "eslint.validate": ["javascript", "typescript", "typescriptreact"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  }
+}

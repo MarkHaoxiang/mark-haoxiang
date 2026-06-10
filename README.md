@@ -43,7 +43,9 @@ To test the production setup locally, build the site and run compose without a `
 ```bash
 cd site
 npm test             # vitest (route smoke tests, data validation)
-npm run check        # typecheck + tests
+npm run lint         # eslint
+npm run smoke        # production build into a throwaway dir (never touches dist/)
+npm run check        # typecheck + lint + tests + build smoke
 ```
 
 A pre-commit hook (`.githooks/pre-commit`) runs `npm run check` when `site/` files are staged, and `caddy validate` when `infra/` files are staged (skipped if caddy isn't installed). It is enabled by `git config core.hooksPath .githooks`, which the site's npm `prepare` script sets automatically on install.
