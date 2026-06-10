@@ -6,6 +6,21 @@ import { SiGithub, SiGooglescholar } from "react-icons/si";
 
 type Theme = "light" | "dark";
 
+const contactLinks = [
+  { label: "Email", href: "mailto:mark.haoxiang@gmail.com", Icon: MdEmail },
+  { label: "GitHub", href: "https://github.com/MarkHaoxiang", Icon: SiGithub },
+  {
+    label: "Scholar",
+    href: "https://scholar.google.com/citations?hl=en&user=C5UBf5QAAAAJ",
+    Icon: SiGooglescholar,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/hao-xiang-li",
+    Icon: FaLinkedin,
+  },
+];
+
 // localStorage can be unavailable (opaque origins, privacy modes).
 function storedTheme(): Theme | null {
   try {
@@ -76,34 +91,19 @@ export default function Layout() {
         <Outlet />
       </main>
       <footer className="site-footer">
-        <a href="mailto:mark.haoxiang@gmail.com">
-          <MdEmail />
-          Email
-        </a>
-        <a
-          href="https://github.com/MarkHaoxiang"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <SiGithub />
-          GitHub
-        </a>
-        <a
-          href="https://scholar.google.com/citations?hl=en&user=C5UBf5QAAAAJ"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <SiGooglescholar />
-          Scholar
-        </a>
-        <a
-          href="https://www.linkedin.com/in/hao-xiang-li"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <FaLinkedin />
-          LinkedIn
-        </a>
+        {contactLinks.map(({ label, href, Icon }) => (
+          <a
+            key={label}
+            href={href}
+            {...(href.startsWith("http") && {
+              target: "_blank",
+              rel: "noreferrer",
+            })}
+          >
+            <Icon />
+            {label}
+          </a>
+        ))}
       </footer>
     </div>
   );
