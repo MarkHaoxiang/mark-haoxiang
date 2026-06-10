@@ -1,9 +1,9 @@
 import PublicationPage from "../../components/PublicationPage";
 import { getPublication } from "../../data/publications";
-import overviewFigure from "../../assets/geometric-governance-overview.svg";
-import bipartiteFigure from "../../assets/geometric-governance-bipartite.svg";
-import adversarialTrainingFigure from "../../assets/geometric-governance-adversarial-training.png";
-import rationalLossFigure from "../../assets/geometric-governance-rational-loss.png";
+import overviewFigure from "../../assets/geometric-governance/overview.svg";
+import bipartiteFigure from "../../assets/geometric-governance/bipartite.svg";
+import adversarialTrainingFigure from "../../assets/geometric-governance/adversarial-training.png";
+import rationalLossFigure from "../../assets/geometric-governance/rational-loss.png";
 
 const bibtex = `@misc{li2026learningresilientelections,
   title={Learning Resilient Elections with Adversarial GNNs},

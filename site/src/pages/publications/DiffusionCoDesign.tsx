@@ -1,10 +1,10 @@
 import PublicationPage from "../../components/PublicationPage";
 import { getPublication } from "../../data/publications";
-import architectureFigure from "../../assets/diffusion-co-design-architecture.jpg";
-import cornerTrainingFigure from "../../assets/diffusion-co-design-corner-training.png";
-import distillAblationFigure from "../../assets/diffusion-co-design-distill-ablation.png";
-import wfcrlScalingFigure from "../../assets/diffusion-co-design-wfcrl-scaling.png";
-import pugAblationFigure from "../../assets/diffusion-co-design-pug-ablation.png";
+import architectureFigure from "../../assets/diffusion-co-design/architecture.jpg";
+import cornerTrainingFigure from "../../assets/diffusion-co-design/corner-training.png";
+import distillAblationFigure from "../../assets/diffusion-co-design/distill-ablation.png";
+import wfcrlScalingFigure from "../../assets/diffusion-co-design/wfcrl-scaling.png";
+import pugAblationFigure from "../../assets/diffusion-co-design/pug-ablation.png";
 
 const bibtex = `@inproceedings{li2026scalingmultiagentenvironmentcodesign,
   title={Scaling Multi-Agent Environment Co-Design with Diffusion Models},

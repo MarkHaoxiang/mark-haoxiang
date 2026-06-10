@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import hikePhoto from "../assets/hike-peak-district.jpg";
+import hikePhoto from "../assets/home/hike-peak-district.jpg";
 
 export default function Home() {
   return (
