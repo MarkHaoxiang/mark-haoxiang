@@ -1,13 +1,8 @@
 import { useEffect, useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
-import {
-  GitHubIcon,
-  LinkedInIcon,
-  MailIcon,
-  MoonIcon,
-  ScholarIcon,
-  SunIcon,
-} from "./icons";
+import { FaLinkedin } from "react-icons/fa6";
+import { MdDarkMode, MdEmail, MdLightMode } from "react-icons/md";
+import { SiGithub, SiGooglescholar } from "react-icons/si";
 
 type Theme = "light" | "dark";
 
@@ -73,7 +68,7 @@ export default function Layout() {
               setTheme(effectiveTheme === "dark" ? "light" : "dark")
             }
           >
-            {effectiveTheme === "dark" ? <SunIcon /> : <MoonIcon />}
+            {effectiveTheme === "dark" ? <MdLightMode /> : <MdDarkMode />}
           </button>
         </nav>
       </header>
@@ -82,7 +77,7 @@ export default function Layout() {
       </main>
       <footer className="site-footer">
         <a href="mailto:mark.haoxiang@gmail.com">
-          <MailIcon />
+          <MdEmail />
           Email
         </a>
         <a
@@ -90,7 +85,7 @@ export default function Layout() {
           target="_blank"
           rel="noreferrer"
         >
-          <GitHubIcon />
+          <SiGithub />
           GitHub
         </a>
         <a
@@ -98,7 +93,7 @@ export default function Layout() {
           target="_blank"
           rel="noreferrer"
         >
-          <ScholarIcon />
+          <SiGooglescholar />
           Scholar
         </a>
         <a
@@ -106,7 +101,7 @@ export default function Layout() {
           target="_blank"
           rel="noreferrer"
         >
-          <LinkedInIcon />
+          <FaLinkedin />
           LinkedIn
         </a>
       </footer>
