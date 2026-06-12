@@ -4,14 +4,13 @@
 {$SITE_ADDRESS:localhost:8080} {
 	encode gzip
 
-	# Future projects mount under paths. handle_path strips the prefix
-	# before proxying, so the upstream sees requests rooted at /.
-	# Remember to set the matching base path in the project's build
-	# (e.g. vite `base: "/catan/"` and FastAPI `root_path="/catan"`).
-	#
-	# handle_path /catan/* {
-	# 	reverse_proxy catan:8000
-	# }
+	# Projects mount under paths. handle_path strips the prefix before
+	# proxying, so the upstream sees requests rooted at /; the project's
+	# build sets the matching base path (catan: vite --base=/catan/ via
+	# the image's BASE_PATH build arg, FastAPI ROOT_PATH=/catan).
+	handle_path /catan/* {
+		reverse_proxy catan:8000
+	}
 
 	handle {
 		root * /srv/site

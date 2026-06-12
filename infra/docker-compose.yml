@@ -14,12 +14,20 @@ services:
       - caddy_data:/data
       - caddy_config:/config
 
-  # Future projects join as additional services, e.g.:
-  #
-  # catan:
-  #   build: <path or image for catan-render>
-  #   expose:
-  #     - "8000"
+  # catan-render, from a sibling checkout of catan-engine. Single process,
+  # single worker (games live in memory). CATAN_CREATE_KEY in infra/.env
+  # gates game creation (the dialog's "Host key"); leave unset to allow all.
+  catan:
+    build:
+      context: ../../catan-engine
+      args:
+        BASE_PATH: /catan/
+    restart: unless-stopped
+    expose:
+      - "8000"
+    environment:
+      - ROOT_PATH=/catan
+      - CATAN_RENDER_CREATE_KEY=${CATAN_CREATE_KEY:-}
 
 volumes:
   caddy_data:

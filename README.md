@@ -54,7 +54,13 @@ A pre-commit hook (`.githooks/pre-commit`) runs `npm run check` when `site/` fil
 
 Projects live in their own repositories and are mounted under a path on the domain:
 
-1. Add a service to `infra/docker-compose.yml` (see the commented `catan` stub).
+1. Add a service to `infra/docker-compose.yml` (see the `catan` service).
 2. Add a `handle_path /<name>/*` block to `infra/Caddyfile` proxying to that service.
 3. Build the project with a matching base path (for catan-render: Vite `base: "/catan/"` and FastAPI `root_path="/catan"`), since `handle_path` strips the prefix before proxying.
 4. Add a project page to `site/src/pages/projects/` and link it from `site/src/pages/Projects.tsx`.
+
+The `catan` service builds from a sibling checkout: clone
+[catan-engine](https://github.com/MarkHaoxiang/catan-engine) next to this
+repository, then `cd infra && docker compose up -d --build`. Optionally set
+`CATAN_CREATE_KEY=<secret>` in `infra/.env` so only key holders can create
+games at [markhaoxiang.com/catan](https://markhaoxiang.com/catan).
