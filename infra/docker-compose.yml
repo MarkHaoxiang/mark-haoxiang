@@ -17,8 +17,7 @@ services:
   # catan-render, from a sibling checkout of catan-engine. Single process,
   # single worker (one in-memory game registry). Games are journalled to the
   # catan_state volume and replayed on restart, so a redeploy or crash resumes
-  # games in progress. CATAN_CREATE_KEY in infra/.env gates game creation (the
-  # dialog's "Host key"); leave it unset to let anyone create games.
+  # games in progress.
   catan:
     build:
       context: ../../catan-engine
@@ -29,7 +28,6 @@ services:
       - "8000"
     environment:
       - ROOT_PATH=/catan
-      - CATAN_RENDER_CREATE_KEY=${CATAN_CREATE_KEY:-}
       - CATAN_RENDER_STATE_DIR=/data
     volumes:
       - catan_state:/data

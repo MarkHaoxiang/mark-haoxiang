@@ -63,6 +63,5 @@ The `catan` service builds from a sibling checkout: clone
 [catan-engine](https://github.com/MarkHaoxiang/catan-engine) next to this
 repository, then `cd infra && docker compose up -d --build`. Games are
 journalled to the `catan_state` volume and replayed on restart, so a redeploy
-resumes games in progress. Optionally set `CATAN_CREATE_KEY=<secret>` in
-`infra/.env` (see `.env.example`) so only key holders can create games at
+resumes games in progress at
 [markhaoxiang.com/catan](https://markhaoxiang.com/catan).
