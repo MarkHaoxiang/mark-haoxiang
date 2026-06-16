@@ -6,9 +6,9 @@ export default function Projects() {
       <h1>Projects</h1>
       <ul className="project-list">
         <li>
-          <Link to="/projects/catan-engine">Catan Engine</Link>
+          <Link to="/projects/settlrl-engine">Settlrl Engine</Link>
           <p>
-            A JAX-based Settlers of Catan engine with reinforcement learning
+            A JAX-based hex-tile trading game engine with reinforcement learning
             agents and a live in-browser demo.
           </p>
         </li>

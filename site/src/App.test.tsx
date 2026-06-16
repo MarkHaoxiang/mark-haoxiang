@@ -54,20 +54,20 @@ describe("routes", () => {
     renderAt("/projects");
     expect(screen.getByRole("heading", { name: "Projects" })).toBeTruthy();
     expect(
-      screen.getByRole("link", { name: "Catan Engine" }).getAttribute("href"),
-    ).toBe("/projects/catan-engine");
+      screen.getByRole("link", { name: "Settlrl Engine" }).getAttribute("href"),
+    ).toBe("/projects/settlrl-engine");
   });
 
-  it("renders the catan-engine project page with demo and repo links", () => {
-    renderAt("/projects/catan-engine");
+  it("renders the settlrl-engine project page with demo and repo links", () => {
+    renderAt("/projects/settlrl-engine");
     expect(
       screen.getByRole("link", { name: "Live demo" }).getAttribute("href"),
-    ).toBe("/catan");
+    ).toBe("/settlrl");
     expect(
       screen
         .getByRole("link", { name: "Source on GitHub" })
         .getAttribute("href"),
-    ).toBe("https://github.com/MarkHaoxiang/catan-engine");
+    ).toBe("https://github.com/MarkHaoxiang/settlrl-engine");
   });
 
   it("falls back to the not-found page on unknown routes", () => {

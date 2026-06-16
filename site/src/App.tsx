@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Projects from "./pages/Projects";
 import Publications from "./pages/Publications";
-import CatanEngine from "./pages/projects/CatanEngine";
+import SettlrlEngine from "./pages/projects/SettlrlEngine";
 import DiffusionCoDesign from "./pages/publications/DiffusionCoDesign";
 import GeometricGovernance from "./pages/publications/GeometricGovernance";
 import NeuralMmo from "./pages/publications/NeuralMmo";
@@ -25,7 +25,7 @@ export default function App() {
         />
         <Route path="publications/neural-mmo" element={<NeuralMmo />} />
         <Route path="projects" element={<Projects />} />
-        <Route path="projects/catan-engine" element={<CatanEngine />} />
+        <Route path="projects/settlrl-engine" element={<SettlrlEngine />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

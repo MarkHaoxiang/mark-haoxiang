@@ -3,7 +3,7 @@
 Personal website and server hosting for [markhaoxiang.com](https://markhaoxiang.com).
 
 - `site/` — the personal site: React + Vite + TypeScript single-page app, served as static files.
-- `infra/` — Caddy reverse proxy + docker-compose. This is the entrypoint for everything hosted on the domain; other projects (e.g. [catan-engine](https://github.com/MarkHaoxiang/catan-engine)) join as additional compose services behind path routes.
+- `infra/` — Caddy reverse proxy + docker-compose. This is the entrypoint for everything hosted on the domain; other projects (e.g. [settlrl-engine](https://github.com/MarkHaoxiang/settlrl-engine)) join as additional compose services behind path routes.
 
 ## Server bootstrap
 
@@ -54,14 +54,14 @@ A pre-commit hook (`.githooks/pre-commit`) runs `npm run check` when `site/` fil
 
 Projects live in their own repositories and are mounted under a path on the domain:
 
-1. Add a service to `infra/docker-compose.yml` (see the `catan` service).
+1. Add a service to `infra/docker-compose.yml` (see the `settlrl` service).
 2. Add a `handle_path /<name>/*` block to `infra/Caddyfile` proxying to that service.
-3. Build the project with a matching base path (for catan-render: Vite `base: "/catan/"` and FastAPI `root_path="/catan"`), since `handle_path` strips the prefix before proxying.
+3. Build the project with a matching base path (for settlrl-render: Vite `base: "/settlrl/"` and FastAPI `root_path="/settlrl"`), since `handle_path` strips the prefix before proxying.
 4. Add a project page to `site/src/pages/projects/` and link it from `site/src/pages/Projects.tsx`.
 
-The `catan` service builds from a sibling checkout: clone
-[catan-engine](https://github.com/MarkHaoxiang/catan-engine) next to this
+The `settlrl` service builds from a sibling checkout: clone
+[settlrl-engine](https://github.com/MarkHaoxiang/settlrl-engine) next to this
 repository, then `cd infra && docker compose up -d --build`. Games are
-journalled to the `catan_state` volume and replayed on restart, so a redeploy
+journalled to the `settlrl_state` volume and replayed on restart, so a redeploy
 resumes games in progress at
-[markhaoxiang.com/catan](https://markhaoxiang.com/catan).
+[markhaoxiang.com/settlrl](https://markhaoxiang.com/settlrl).
