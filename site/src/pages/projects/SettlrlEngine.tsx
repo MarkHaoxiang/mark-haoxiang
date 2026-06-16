@@ -11,7 +11,7 @@ export default function SettlrlEngine() {
       </p>
       <p>
         {/* Served by the settlrl-render service behind this domain's reverse proxy. */}
-        <a href="/settlrl">Live demo</a> ·{" "}
+        <a href="/settlrl/">Live demo</a> ·{" "}
         <a
           href="https://github.com/MarkHaoxiang/settlrl-engine"
           target="_blank"

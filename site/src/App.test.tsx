@@ -62,7 +62,7 @@ describe("routes", () => {
     renderAt("/projects/settlrl-engine");
     expect(
       screen.getByRole("link", { name: "Live demo" }).getAttribute("href"),
-    ).toBe("/settlrl");
+    ).toBe("/settlrl/");
     expect(
       screen
         .getByRole("link", { name: "Source on GitHub" })
