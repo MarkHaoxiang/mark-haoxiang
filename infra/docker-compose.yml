@@ -14,10 +14,11 @@ services:
       - caddy_data:/data
       - caddy_config:/config
 
-  # settlrl-render, from a sibling checkout of settlrl-engine. Single process,
+  # settlrl-app, from a sibling checkout of settlrl-engine. Single process,
   # single worker (one in-memory game registry). Games are journalled to the
   # settlrl_state volume and replayed on restart, so a redeploy or crash resumes
-  # games in progress.
+  # games in progress. Secrets (admin emails, …) come from .secrets/.env,
+  # mounted read-only to where the app reads it (/app/.secrets/.env).
   settlrl:
     build:
       context: ../../settlrl-engine
@@ -28,9 +29,10 @@ services:
       - "8000"
     environment:
       - ROOT_PATH=/settlrl
-      - SETTLRL_RENDER_STATE_DIR=/data
+      - SETTLRL_APP_STATE_DIR=/data
     volumes:
       - settlrl_state:/data
+      - ./.secrets:/app/.secrets:ro
 
 volumes:
   caddy_data:
