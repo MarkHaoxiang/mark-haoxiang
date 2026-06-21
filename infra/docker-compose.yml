@@ -30,9 +30,26 @@ services:
     environment:
       - ROOT_PATH=/settlrl
       - SETTLRL_APP_STATE_DIR=/data
+      # Bot services registered on startup (retried until reachable), so their
+      # bots are seatable without a manual admin call.
+      - SETTLRL_APP_BOT_PROVIDERS=http://settlrl-greedy:8000
     volumes:
       - settlrl_state:/data
       - ./.secrets:/app/.secrets:ro
+    depends_on:
+      - settlrl-greedy
+
+  # A one-bot service the game server delegates moves to. One container per bot;
+  # add more (SETTLRL_BOT=mcts, …) and list each in SETTLRL_APP_BOT_PROVIDERS.
+  settlrl-greedy:
+    build:
+      context: ../../settlrl-engine
+      dockerfile: Dockerfile.bot
+    restart: unless-stopped
+    expose:
+      - "8000"
+    environment:
+      - SETTLRL_BOT=greedy
 
 volumes:
   caddy_data:
